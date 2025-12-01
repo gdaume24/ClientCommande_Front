@@ -1,0 +1,9 @@
+http://localhost:5000/Commande/1
+
+
+{
+  "numeroCommande": "string",
+  "montantTotal": 30,
+  "statut": "string",
+  "clientId": 3
+}

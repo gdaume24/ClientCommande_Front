@@ -1,0 +1,8 @@
+// Envoyer juste la clef en header
+
+Type de retour :
+{
+  "id": 1,
+  "username": "string",
+  "email": "string"
+}

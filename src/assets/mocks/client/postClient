@@ -1,0 +1,18 @@
+{
+  "nom": "string",
+  "prenom": "string",
+  "email": "string@gmail.com",
+  "telephone": "0123435323",
+  "adresse": "string"
+}
+
+//retour
+{
+  "id": 1,
+  "nom": "string",
+  "prenom": "string",
+  "email": "string@gmail.com",
+  "telephone": "0123435323",
+  "adresse": "string",
+  "dateCreation": "2025-12-01T14:38:19.140853+01:00"
+}

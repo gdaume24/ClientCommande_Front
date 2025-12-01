@@ -1,0 +1,16 @@
+{
+  "numeroCommande": "string",
+  "montantTotal": 30,
+  "statut": "string",
+  "clientId": 2
+}
+
+// retour
+{
+  "id": 1,
+  "numeroCommande": "string",
+  "dateCommande": "2025-12-01T14:42:58.067763+01:00",
+  "montantTotal": 30,
+  "statut": "string",
+  "clientId": 2
+}
