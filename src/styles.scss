@@ -1,0 +1,18 @@
+/* === Angular Material theme FIRST === */
+@use "@angular/material" as mat;
+
+@include mat.core();
+@include mat.deep-purple-amber();
+
+/* === Tailwind AFTER === */
+@import "tailwindcss";
+
+/* === Global styles === */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
