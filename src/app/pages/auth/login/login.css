@@ -7,3 +7,7 @@ mat-card{
 mat-form-field{
   display: block;
 }
+input {
+  background-color: var(--mat-sys-primary);
+  color:var(--mat-sys-primary) !important
+}
