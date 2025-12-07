@@ -1,0 +1,17 @@
+mat-card{
+  width: 400px;
+  margin: 2em auto;
+  text-align: center;
+  background-color:white;
+}
+mat-form-field{
+  display: block;
+}
+.connection-link {
+  display: block;       /* force le lien à prendre toute la largeur */
+  text-align: left;     /* aligne le texte à gauche */
+  margin-top: 0.5em;
+  font-size: 14px;
+  margin-left: 2px;
+  cursor: pointer;
+}

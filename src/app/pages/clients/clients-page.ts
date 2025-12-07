@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ClientsTable} from '../clients-table/clients-table';
+import { ClientsTable } from '../../components/clients/clients-table/clients-table';
 
 @Component({
   selector: 'app-clients-page',
