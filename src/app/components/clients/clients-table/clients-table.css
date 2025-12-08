@@ -1,0 +1,24 @@
+/* Aligne verticalement tout le contenu des cellules */
+.mat-cell, .mat-header-cell {
+	vertical-align: middle;
+}
+
+/* Aligne verticalement les icônes d'action au centre de la cellule */
+.actions-cell {
+	text-align: center;
+}
+.actions-cell button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.2s;
+}
+.actions-cell button:hover {
+	transform: scale(1.1);
+}
+.actions-cell svg {
+	display: block;
+}
+.actions-cell button + button {
+	margin-left: 0.75rem;
+}

@@ -1,4 +1,21 @@
-<button routerLink="/clients/new" class="btn btn-primary mb-3">
-  Ajouter un client
-</button>
+<!-- Navigation Tabs -->
+<div class="flex justify-center gap-4 mb-6 border-b-2">
+  <button class="px-6 py-3 text-blue-500 font-semibold border-b-2 border-blue-500">Clients</button>
+  <a routerLink="/commandes" class="px-6 py-3 text-gray-700 hover:text-blue-500">Commandes</a>
+</div>
+
+<div class="flex justify-end mb-3">
+  <button (click)="toggleForm()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+    {{ showForm ? '- Fermer' : '+ Nouveau Client' }}
+  </button>
+</div>
+
+<app-client-create-form 
+  [showForm]="showForm" 
+  [isLoading]="isLoading"
+  (formSubmit)="onCreateClient($event)"
+  (formCancel)="onFormCancel()"
+></app-client-create-form>
+
 <app-clients-table></app-clients-table>
+

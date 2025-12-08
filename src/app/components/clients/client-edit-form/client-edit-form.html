@@ -1,0 +1,59 @@
+<div class="bg-white p-6 rounded-lg shadow-md">
+  <h3 class="text-xl font-semibold mb-4">Modifier le Client</h3>
+  <form [formGroup]="form">
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Nom *</label>
+        <input type="text" placeholder="Nom de famille" formControlName="nom" class="w-full px-3 py-2 border rounded">
+        <div *ngIf="form.get('nom')?.invalid && form.get('nom')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="form.get('nom')?.errors?.['required']">Le nom est obligatoire.</span>
+          <span *ngIf="form.get('nom')?.errors?.['maxlength']">Le nom ne peut pas dépasser 50 caractères.</span>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Prénom *</label>
+        <input type="text" placeholder="Prénom" formControlName="prenom" class="w-full px-3 py-2 border rounded">
+        <div *ngIf="form.get('prenom')?.invalid && form.get('prenom')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="form.get('prenom')?.errors?.['required']">Le prénom est obligatoire.</span>
+          <span *ngIf="form.get('prenom')?.errors?.['maxlength']">Le prénom ne peut pas dépasser 50 caractères.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Email *</label>
+        <input type="email" placeholder="email@example.com" formControlName="email" class="w-full px-3 py-2 border rounded">
+        <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="form.get('email')?.errors?.['required']">L'email est obligatoire.</span>
+          <span *ngIf="form.get('email')?.errors?.['email']">L'email n'est pas valide.</span>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Téléphone *</label>
+        <input type="tel" placeholder="0123456789" formControlName="telephone" class="w-full px-3 py-2 border rounded">
+        <div *ngIf="form.get('telephone')?.invalid && form.get('telephone')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="form.get('telephone')?.errors?.['required']">Le téléphone est obligatoire.</span>
+          <span *ngIf="form.get('telephone')?.errors?.['pattern']">Le téléphone doit contenir exactement 10 chiffres.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-sm font-medium mb-1">Adresse</label>
+      <textarea placeholder="Adresse complète" rows="3" formControlName="adresse" class="w-full px-3 py-2 border rounded"></textarea>
+      <div *ngIf="form.get('adresse')?.invalid && form.get('adresse')?.touched" class="text-red-500 text-xs mt-1">
+        <span *ngIf="form.get('adresse')?.errors?.['maxlength']">L'adresse ne peut pas dépasser 150 caractères.</span>
+      </div>
+    </div>
+
+    <div class="flex gap-2">
+      <button type="button" (click)="onSave()" [disabled]="form.invalid || isLoading" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50">
+        {{ isLoading ? 'Mise à jour en cours...' : 'Mettre à Jour' }}
+      </button>
+      <button type="button" (click)="onCancel()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>

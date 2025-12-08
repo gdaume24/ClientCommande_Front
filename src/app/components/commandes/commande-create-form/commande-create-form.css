@@ -1,11 +1,6 @@
-/* Commandes Page Styles */
+/* Commande Create Form Styles */
 
 :host {
-  display: block;
-  padding: 20px;
-}
-
-form {
   display: block;
 }
 
@@ -40,16 +35,4 @@ button {
 
 button:disabled {
   cursor: not-allowed;
-}
-
-/* Navigation Tabs */
-a {
-  text-decoration: none;
-  font-weight: 500;
-  display: inline-block;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: #3b82f6;
 }

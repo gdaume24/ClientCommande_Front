@@ -1,0 +1,54 @@
+<div class="bg-white p-6 rounded-lg shadow-md">
+  <h3 class="text-xl font-semibold mb-4">Modifier la Commande</h3>
+  <form [formGroup]="form">
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">N° Commande *</label>
+        <input type="text" placeholder="CMD-2024-001" formControlName="numeroCommande" class="w-full px-3 py-2 border rounded">
+        <div *ngIf="form.get('numeroCommande')?.invalid && form.get('numeroCommande')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="form.get('numeroCommande')?.errors?.['required']">Le numéro est obligatoire.</span>
+          <span *ngIf="form.get('numeroCommande')?.errors?.['maxlength']">Max 50 caractères.</span>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Client ID *</label>
+        <input type="number" placeholder="1" formControlName="clientId" class="w-full px-3 py-2 border rounded">
+        <div *ngIf="form.get('clientId')?.invalid && form.get('clientId')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="form.get('clientId')?.errors?.['required']">Le client est obligatoire.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Montant Total *</label>
+        <input type="number" placeholder="149.99" formControlName="montantTotal" class="w-full px-3 py-2 border rounded">
+        <div *ngIf="form.get('montantTotal')?.invalid && form.get('montantTotal')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="form.get('montantTotal')?.errors?.['required']">Le montant est obligatoire.</span>
+          <span *ngIf="form.get('montantTotal')?.errors?.['pattern']">Format invalide (ex: 149.99).</span>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Statut *</label>
+        <select formControlName="statut" class="w-full px-3 py-2 border rounded">
+          <option value="">Sélectionner un statut</option>
+          <option value="Payée">Payée</option>
+          <option value="En cours">En cours</option>
+          <option value="Annulée">Annulée</option>
+        </select>
+        <div *ngIf="form.get('statut')?.invalid && form.get('statut')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="form.get('statut')?.errors?.['required']">Le statut est obligatoire.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex gap-2">
+      <button type="button" (click)="onSave()" [disabled]="form.invalid || isLoading" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50">
+        {{ isLoading ? 'Mise à jour en cours...' : 'Mettre à Jour' }}
+      </button>
+      <button type="button" (click)="onCancel()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>

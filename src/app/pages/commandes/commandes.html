@@ -1,1 +1,22 @@
-<p>commandes works!</p>
+<!-- Navigation Tabs -->
+<div class="flex justify-center gap-4 mb-6 border-b-2">
+  <a routerLink="/clients" class="px-6 py-3 text-gray-700 hover:text-blue-500">Clients</a>
+  <button class="px-6 py-3 text-blue-500 font-semibold border-b-2 border-blue-500">Commandes</button>
+</div>
+
+<!-- Commandes Content -->
+<div class="flex justify-end mb-3">
+  <button (click)="toggleForm()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+    {{ showForm ? '- Fermer' : '+ Nouvelle Commande' }}
+  </button>
+</div>
+
+<app-commande-create-form 
+  [showForm]="showForm" 
+  [isLoading]="isLoading"
+  (formSubmit)="onCreateCommande($event)"
+  (formCancel)="onFormCancel()"
+></app-commande-create-form>
+
+<app-commandes-table></app-commandes-table>
+

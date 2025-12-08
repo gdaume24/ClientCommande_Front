@@ -1,0 +1,81 @@
+<div *ngIf="showForm" class="bg-white p-6 rounded-lg shadow-md mb-6">
+  <h2 class="text-xl font-semibold mb-4">Créer une Nouvelle Commande</h2>
+  
+  <form [formGroup]="createCommandeForm" (ngSubmit)="onSubmit()">
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">N° Commande *</label>
+        <input 
+          type="text" 
+          placeholder="CMD-2024-001" 
+          formControlName="numeroCommande"
+          class="w-full px-3 py-2 border rounded"
+        >
+        <div *ngIf="createCommandeForm.get('numeroCommande')?.invalid && createCommandeForm.get('numeroCommande')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="createCommandeForm.get('numeroCommande')?.errors?.['required']">Le numéro est obligatoire.</span>
+          <span *ngIf="createCommandeForm.get('numeroCommande')?.errors?.['maxlength']">Max 50 caractères.</span>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Client ID *</label>
+        <input 
+          type="number" 
+          placeholder="1" 
+          formControlName="clientId"
+          class="w-full px-3 py-2 border rounded"
+        >
+        <div *ngIf="createCommandeForm.get('clientId')?.invalid && createCommandeForm.get('clientId')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="createCommandeForm.get('clientId')?.errors?.['required']">Le client est obligatoire.</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Montant Total *</label>
+        <input 
+          type="number" 
+          placeholder="149.99" 
+          formControlName="montantTotal"
+          class="w-full px-3 py-2 border rounded"
+        >
+        <div *ngIf="createCommandeForm.get('montantTotal')?.invalid && createCommandeForm.get('montantTotal')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="createCommandeForm.get('montantTotal')?.errors?.['required']">Le montant est obligatoire.</span>
+          <span *ngIf="createCommandeForm.get('montantTotal')?.errors?.['pattern']">Format invalide (ex: 149.99).</span>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Statut *</label>
+        <select 
+          formControlName="statut"
+          class="w-full px-3 py-2 border rounded"
+        >
+          <option value="">Sélectionner un statut</option>
+          <option value="Payée">Payée</option>
+          <option value="En cours">En cours</option>
+          <option value="Annulée">Annulée</option>
+        </select>
+        <div *ngIf="createCommandeForm.get('statut')?.invalid && createCommandeForm.get('statut')?.touched" class="text-red-500 text-xs mt-1">
+          <span *ngIf="createCommandeForm.get('statut')?.errors?.['required']">Le statut est obligatoire.</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex gap-2">
+      <button 
+        type="submit" 
+        [disabled]="createCommandeForm.invalid || isLoading"
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50"
+      >
+        {{ isLoading ? 'Création en cours...' : 'Créer la Commande' }}
+      </button>
+      <button 
+        type="button" 
+        (click)="onCancel()" 
+        class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400"
+      >
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>
